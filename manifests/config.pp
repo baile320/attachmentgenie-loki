@@ -65,7 +65,7 @@ class loki::config {
   # Configures the common config hash.
   # [common: <common_config>]
   if $loki::common_config_hash {
-    concat::fragment { 'common':
+    concat::fragment { 'common_config':
       target  => $config_file,
       content => $loki::distributor_config_hash.promtail::to_yaml.promtail::strip_yaml_header,
       order   => '4',
